@@ -11,8 +11,6 @@ class UsersController < ApplicationController
           name = data.search('.player-name').first.content
           score = data.search('.scores').first.content.gsub(/\s/,'')
           User.create!(name: name, scores: score)
-          # parsed_data.search('.body')[2].search('.player-name').first.content
-          # parsed_data.search('.body')[2].search('.scores').first.content
         end
         return render json: {message: 'Records saved successfully'} 
       rescue Exception => e
