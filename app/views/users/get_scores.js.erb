@@ -1,0 +1,5 @@
+<% if @status %>
+  $("#common_page").html("<%= escape_javascript render(:partial => 'index', :locals => {:user_flag => true}) %>");
+<% else %>
+  alert('Something went wrong. Please try after sometime.')
+<% end %>

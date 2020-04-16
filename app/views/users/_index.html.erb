@@ -1,0 +1,21 @@
+<%= link_to 'Delete all records', destroy_all_path, remote: true if users_count %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Scores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if user_flag %>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.scores %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+  <%= link_to 'Get player scores', get_scores_path , remote: true %>
+</div>
