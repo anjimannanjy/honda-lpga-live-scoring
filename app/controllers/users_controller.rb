@@ -17,10 +17,15 @@ class UsersController < ApplicationController
 
   def create_records(parse_data)
     begin
-      parse_data.search('.body').each do |data|
+      parse_data.search('.player-dropdown-wrapper').each do |data|
         name = data.search('.player-name').first.content
-        score = data.search('.scores').first.content.gsub(/\s/,'')
-        User.create!(name: name, scores: score)
+        static_url = data.search('.player-data-container')[0].values[1]
+        res = Net::HTTP.get_response(URI.parse("https://www.lpga.com#{static_url}"))
+        parse_data1 = Nokogiri::HTML.parse(res.body)
+        par = parse_data1.search('.body')[0].content.squish!
+        round = parse_data1.search('.body')[1].content.squish!
+        status = parse_data1.search('.body')[2].content.squish!
+        User.create!(name: name, scores: static_url, par: par, round: round, status: status)
       end
       return true
     rescue Exception => e
