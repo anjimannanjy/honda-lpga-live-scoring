@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.center{
+  text-align: center;
+}
+.name_style{
+  text-align: center; 
+  vertical-align: middle !important;
+}
+.cell_bold{
+  font-weight: bold;
+}
