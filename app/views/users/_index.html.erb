@@ -2,19 +2,52 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Scores</th>
+      <th class="center">Name</th>
+      <th colspan="22" class="center">Scores</th>
     </tr>
   </thead>
   <tbody>
     <% if user_flag %>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
-          <td><%= user.par %><br/>
-              <%= user.round %><br/>
-              <%= user.status %>
-          </td>
+          <td rowspan="4" class="name_style"><%= user.name %></td>
+         <td class="cell_bold">Hole</td>
+         <td class="cell_bold">1</td>
+         <td class="cell_bold">2</td>
+         <td class="cell_bold">3</td>
+         <td class="cell_bold">4</td>
+         <td class="cell_bold">5</td>
+         <td class="cell_bold">6</td>
+         <td class="cell_bold">7</td>
+         <td class="cell_bold">8</td>
+         <td class="cell_bold">9</td>
+         <td class="cell_bold">Out</td>
+         <td class="cell_bold">10</td>
+         <td class="cell_bold">11</td>
+         <td class="cell_bold">12</td>
+         <td class="cell_bold">13</td>
+         <td class="cell_bold">14</td>
+         <td class="cell_bold">15</td>
+         <td class="cell_bold">16</td>
+         <td class="cell_bold">17</td>
+         <td class="cell_bold">18</td>
+         <td class="cell_bold">In</td>
+         <td class="cell_bold">Tot</td>
+       </tr>
+        <tr>
+          <% user.par.gsub(/\s+/m, ' ').strip.split(" ").each do |a| %>
+            <td> <%= a %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <% user.round.gsub(/\s+/m, ' ').strip.split(" ").each do |a| %>
+            <td><%= a %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <% user.status.gsub(/\s+/m, ' ').strip.split(" ").each do |a| %>
+            <td><%= a %></td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>
