@@ -14,3 +14,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+function get_data_api(){
+  console.log("get data fired")
+  $.ajax({
+          type: "GET",
+          url: "/destroy_all"
+        });
+  $.ajax({
+          type: "GET",
+          url: "/get_scores"
+        });
+};

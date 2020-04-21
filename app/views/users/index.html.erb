@@ -1,3 +1,11 @@
 <div class="container" id="common_page">
   <%= render :partial => 'index', :locals => {:user_flag => true} %>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    myFunction();
+    function myFunction() {
+      setInterval(function(){ get_data_api(); },900000);
+    }
+  });
+</script>
