@@ -3,14 +3,16 @@
   <thead>
     <tr>
       <th class="center">Name</th>
-      <th colspan="22" class="center">Scores</th>
+      <th class="center" width="100px">Scores</th>
+      <th colspan="22" class="center">Full Scorecard</th>
     </tr>
   </thead>
   <tbody>
     <% if user_flag %>
       <% @users.each do |user| %>
         <tr>
-          <td rowspan="4" class="name_style"><%= user.name %></td>
+         <td rowspan="4" class="name_style"><%= user.name %></td>
+        <td rowspan="4" class="name_style"><%= user.scores %></td>
          <td class="cell_bold">Hole</td>
          <td class="cell_bold">1</td>
          <td class="cell_bold">2</td>
