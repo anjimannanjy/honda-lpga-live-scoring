@@ -55,5 +55,5 @@
     <% end %>
   </tbody>
 </table>
-  <%= link_to 'Get player scores', get_scores_path , remote: true %>
+  <%= link_to 'Get player scores', get_scores_path , remote: true if !users_count %>
 </div>

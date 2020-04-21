@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def get_scores
     begin
+      User.delete_all
       uri = URI.parse("https://www.lpga.com/tournaments/volvik-founders-cup/results?filters=2019&archive=")
       response = Net::HTTP.get_response(uri)
       @status = create_records(Nokogiri::HTML.parse(response.body))
